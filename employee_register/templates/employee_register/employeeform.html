@@ -1,0 +1,15 @@
+{% extends 'employee_register/base.html' %}</
+
+{% block content %}
+
+<form action = ""  autocomplete = "off" method = "POST">
+	{% csrf_token %}
+	<div class = "row" style ="width:500px; text-align : center; margin: auto; margin-top:50px; border: 1px solid gray; background-color: #EBECF0; padding:20px">
+		<h2> Employee Registration Form </h2>
+		{{form}}
+		
+			<div ><br/><button type="submit" class="btn btn-primary col-md-3">Submit</button></div>
+		
+	</div>
+</form>
+{% endblock content %}

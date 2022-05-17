@@ -1,0 +1,31 @@
+{% extends 'employee_register/base.html' %}
+
+{% block content %}
+	<div class="row" style="background-color : #EBECF0, padding: 20px; max-width: 75vw; margin: auto;">
+		<h2> List of employees </h2>
+		<table>
+			<thead>
+				<th>Employee Code</th>
+				<th>Name</th>
+				<th>Department</th>
+				<th>Position</th>
+				<th>Mobile</th>
+			</thead>
+			<tbody>
+				{% for employee in employees %}
+				<tr>
+					<td>{{ employee.emp_code }}</td>
+					<td>{{ employee.fullname }}</td>
+					<td>{{ employee.department }}</td>
+					<td>{{ employee.position }}</td>
+					<td>{{ employee.mobile }}</td>
+					<td><a href = "{% url 'employee_update' employee.id %}" class ="btn btn-outline-primary">Edit</a></td>
+					<td><a href="{% url 'employee_delete' employee.id %}" class = "btn btn-outline-primary">Delete</a></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<div style="text-align: right"><a href="{% url 'employee_form' %}" class="btn btn-primary">+ &nbsp; Add New</a></div>
+	</div>
+
+{% endblock %}
